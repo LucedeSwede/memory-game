@@ -27,13 +27,16 @@ function shuffle(array) {
 
 let openList = [];
 
-$('.deck').on('click', 'li', function () {
+const showCard = function() {
     $(this).toggleClass('open show');
-    openList.push($(this).children('i')[0]);
-    console.log(openList);
-    if (openList[0] === openList[1]) {
-        $('.deck').children('li').toggleClass('match');
-    }
+}
+
+$('.deck').on('click', 'li', function () {
+    showCard.call(this);
+//    openList.push($(this).children('i')[0]);
+//    console.log(openList);
+//    if (openList[0] === openList[1]) {
+//        $('.deck').children('li').toggleClass('match');
 });
 
 let classes = document.getElementsByClassName('fa')[0].classList[1];
