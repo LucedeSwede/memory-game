@@ -25,10 +25,19 @@ function shuffle(array) {
     return array;
 }
 
+let openList = [];
+
 $('.deck').on('click', 'li', function () {
     $(this).toggleClass('open show');
+    openList.push($(this).children('i')[0]);
+    console.log(openList);
+    if (openList[0] === openList[1]) {
+        $('.deck').children('li').toggleClass('match');
+    }
 });
 
+let classes = document.getElementsByClassName('fa')[0].classList[1];
+console.log(classes);
 
 /*
  * set up the event listener for a card. If a card is clicked:
