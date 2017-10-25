@@ -25,28 +25,45 @@ function shuffle(array) {
     return array;
 }
 
+
+
 let openList = [];
+
+const deck = $('.deck');
 
 const showCard = function() {
     $(this).toggleClass('open show');
-}
+};
 
-const opened = function() {
-    openList.push($(this).children()[0]);
-}
+//const opened = function() {
+//    openList.push($(this).children()[0]);
+//}
 
-$('.deck').on('click', 'li', function () {
+deck.on('click', 'li', function () {
     showCard.call(this);
-    opened.call(this);
+    openList.push(this.getElementsByClassName('fa')[0].classList[1]);
+
+//    if (openList[0] === openList[1]) {
+//        console.log(openList);
+//    }
+//    opened.call(this);
     console.log(openList);
+
+});
+
+
+
+
 //    openList.push($(this).children('i')[0]);
 //    console.log(openList);
 //    if (openList[0] === openList[1]) {
 //        $('.deck').children('li').toggleClass('match');
-});
 
-let classes = document.getElementsByClassName('fa')[0].classList[1];
-console.log(classes);
+
+
+
+//let classes = document.getElementsByClassName('fa')[0].classList[1];
+//console.log(classes);
 
 /*
  * set up the event listener for a card. If a card is clicked:
