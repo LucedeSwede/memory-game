@@ -42,13 +42,14 @@ const showCard = function() {
 deck.on('click', 'li', function () {
     showCard.call(this);
     openList.push(this.getElementsByClassName('fa')[0].classList[1]);
-
+    if (openList.length === 2 && openList[0] === openList[1]) {
+        openList.splice(0);
+        console.log(openList);
+    }
 //    if (openList[0] === openList[1]) {
 //        console.log(openList);
 //    }
 //    opened.call(this);
-    console.log(openList);
-
 });
 
 
