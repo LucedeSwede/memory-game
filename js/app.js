@@ -32,7 +32,10 @@ let openList = [];
 const deck = $('.deck');
 
 const showCard = function() {
-    $(this).toggleClass('open show');
+    if ($(this).hasClass('match') === false) {
+        $(this).toggleClass('open show');
+        openList.push(this);
+    }
 };
 
 const matched = function() {
@@ -45,7 +48,7 @@ const matched = function() {
 
 deck.on('click', 'li', function () {
     showCard.call(this);
-    openList.push(this);
+    console.log(openList);
     if (openList.length === 2 && openList[0].getElementsByClassName('fa')[0].classList[1] === openList[1].getElementsByClassName('fa')[0].classList[1]) {
 //        ;
 //        openList.splice(0);
