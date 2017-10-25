@@ -53,8 +53,11 @@ deck.on('click', 'li', function () {
         if (openList[0].getElementsByClassName('fa')[0].classList[1] === openList[1].getElementsByClassName('fa')[0].classList[1]) {
             $(openList[0]).toggleClass('match open show');
             $(openList[1]).toggleClass('match open show');
+        } else {
+            $(openList[0]).toggleClass('open show');
+            $(openList[1]).toggleClass('open show');
         }
-    openList.splice(0);
+        openList.splice(0);
     }
 
 //    if (openList[0] === openList[1]) {
