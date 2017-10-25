@@ -31,8 +31,14 @@ const showCard = function() {
     $(this).toggleClass('open show');
 }
 
+const opened = function() {
+    openList.push($(this).children()[0]);
+}
+
 $('.deck').on('click', 'li', function () {
     showCard.call(this);
+    opened.call(this);
+    console.log(openList);
 //    openList.push($(this).children('i')[0]);
 //    console.log(openList);
 //    if (openList[0] === openList[1]) {
