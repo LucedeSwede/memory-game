@@ -52,8 +52,8 @@ deck.on('click', 'li', function () {
     if (openList.length === 2 && openList[0].getElementsByClassName('fa')[0].classList[1] === openList[1].getElementsByClassName('fa')[0].classList[1]) {
 //        ;
 //        openList.splice(0);
-        $(openList[0]).toggleClass('match');
-        $(openList[1]).toggleClass('match');
+        $(openList[0]).toggleClass('match open show');
+        $(openList[1]).toggleClass('match open show');
         console.log(openList);
     }
 //    if (openList[0] === openList[1]) {
