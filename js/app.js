@@ -35,15 +35,22 @@ const showCard = function() {
     $(this).toggleClass('open show');
 };
 
+const matched = function() {
+    $(this).toggleClass('match');
+};
+
 //const opened = function() {
 //    openList.push($(this).children()[0]);
 //}
 
 deck.on('click', 'li', function () {
     showCard.call(this);
-    openList.push(this.getElementsByClassName('fa')[0].classList[1]);
-    if (openList.length === 2 && openList[0] === openList[1]) {
-        openList.splice(0);
+    openList.push(this);
+    if (openList.length === 2 && openList[0].getElementsByClassName('fa')[0].classList[1] === openList[1].getElementsByClassName('fa')[0].classList[1]) {
+//        ;
+//        openList.splice(0);
+        $(openList[0]).toggleClass('match');
+        $(openList[1]).toggleClass('match');
         console.log(openList);
     }
 //    if (openList[0] === openList[1]) {
@@ -52,7 +59,7 @@ deck.on('click', 'li', function () {
 //    opened.call(this);
 });
 
-
+//do not toggle if not match already!!!!!~~~~
 
 
 //    openList.push($(this).children('i')[0]);
