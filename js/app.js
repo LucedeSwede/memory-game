@@ -64,18 +64,16 @@ deck.on('click', 'li', function () {
         if (nameCard(0) === nameCard(1)) {
             matchCard.call(openList[0]);
             matchCard.call(openList[1]);
+            openList.splice(0);
         } else {
-            showCard.call(openList[0]);//$(openList[0]).toggleClass('open show');
-            showCard.call(openList[1]);//$(openList[1]).toggleClass('open show');
+            setTimeout(function() {
+                showCard.call(openList[0]);
+                showCard.call(openList[1]);
+                openList.splice(0);
+            }, 1000);
         }
-        openList.splice(0);
         incMoves();
     }
-
-//    if (openList[0] === openList[1]) {
-//        console.log(openList);
-//    }
-//    opened.call(this);
 });
 
 //do not toggle if not match already!!!!!~~~~
