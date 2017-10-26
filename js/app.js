@@ -38,6 +38,10 @@ const showCard = function() {
     }
 };
 
+const nameCard = function(index) {
+    return openList[index].getElementsByClassName('fa')[0].classList[1];
+}
+
 const matched = function() {
     $(this).toggleClass('match');
 };
@@ -50,7 +54,8 @@ deck.on('click', 'li', function () {
     showCard.call(this);
     console.log(openList);
     if (openList.length === 2) {
-        if (openList[0].getElementsByClassName('fa')[0].classList[1] === openList[1].getElementsByClassName('fa')[0].classList[1]) {
+        if (nameCard(0) === nameCard(1)) {
+//        if (openList[0].getElementsByClassName('fa')[0].classList[1] === openList[1].getElementsByClassName('fa')[0].classList[1]) {
             $(openList[0]).toggleClass('match open show');
             $(openList[1]).toggleClass('match open show');
         } else {
