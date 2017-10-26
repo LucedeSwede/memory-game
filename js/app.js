@@ -48,6 +48,11 @@ const matchCard = function() {
     }
 };
 
+const incMoves = function() {
+    let moves = Number($('.moves').text());
+    $('.moves').text(moves + 1);
+};
+
 //const opened = function() {
 //    openList.push($(this).children()[0]);
 //}
@@ -64,6 +69,7 @@ deck.on('click', 'li', function () {
             showCard.call(openList[1]);//$(openList[1]).toggleClass('open show');
         }
         openList.splice(0);
+        incMoves();
     }
 
 //    if (openList[0] === openList[1]) {
