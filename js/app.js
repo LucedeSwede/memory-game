@@ -32,7 +32,7 @@ let openList = [];
 const deck = $('.deck');
 
 const showCard = function() {
-    if ($(this).hasClass('match') === false) {
+    if ($(this).hasClass('match') === false && openList.length < 2) {
         $(this).toggleClass('open show');
         openList.push(this);
     }
