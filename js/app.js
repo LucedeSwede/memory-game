@@ -59,11 +59,9 @@ deck.on('click', 'li', function () {
         if (nameCard(0) === nameCard(1)) {
             matchCard.call(openList[0]);
             matchCard.call(openList[1]);
-//            $(openList[0]).toggleClass('match open show');
-//            $(openList[1]).toggleClass('match open show');
         } else {
-            $(openList[0]).toggleClass('open show');
-            $(openList[1]).toggleClass('open show');
+            showCard.call(openList[0]);//$(openList[0]).toggleClass('open show');
+            showCard.call(openList[1]);//$(openList[1]).toggleClass('open show');
         }
         openList.splice(0);
     }
