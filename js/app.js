@@ -38,6 +38,12 @@ const showCard = function() {
     }
 };
 
+const hideCard = function() {
+    if ($(this).hasClass('match') === false) {
+        $(this).toggleClass('open show');
+    }
+};
+
 const nameCard = function(index) {
     return openList[index].getElementsByClassName('fa')[0].classList[1];
 };
@@ -67,8 +73,8 @@ deck.on('click', 'li', function () {
             openList.splice(0);
         } else {
             setTimeout(function() {
-                showCard.call(openList[0]);
-                showCard.call(openList[1]);
+                hideCard.call(openList[0]);
+                hideCard.call(openList[1]);
                 openList.splice(0);
             }, 1000);
         }
