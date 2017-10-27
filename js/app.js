@@ -80,8 +80,15 @@ deck.on('click', 'li', function () {
             }, 1000);
         }
         incMoves();
-        if (moves <= 10) {
-            $('.threeStars').toggleClass('fa-star fa-star-o');
+        switch(moves) {
+            case 13:
+                $('.threeStars').toggleClass('fa-star fa-star-o');
+                break;
+            case 17:
+                $('.twoStars').toggleClass('fa-star fa-star-o');
+                break;
+            case 21:
+                $('.oneStar').toggleClass('fa-star fa-star-o');
         }
     }
 });
