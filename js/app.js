@@ -57,6 +57,7 @@ const matchCard = function() {
 const incMoves = function() {
     let moves = Number($('.moves').text());
     $('.moves').text(moves + 1);
+    return moves + 1;
 };
 
 //const opened = function() {
@@ -78,7 +79,10 @@ deck.on('click', 'li', function () {
                 openList.splice(0);
             }, 1000);
         }
-        incMoves();
+        let moves = incMoves();
+        if (moves <= 10) {
+            $('.threeStars').toggleClass('fa-star fa-star-o');
+        }
     }
 });
 
