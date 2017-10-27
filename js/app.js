@@ -29,6 +29,15 @@ function shuffle(array) {
 
 let openList = [];
 let moves = 0;
+// Count up timer from https://stackoverflow.com/questions/5517597/plain-count-up-timer-in-javascript
+let sec = 0;
+const pad = function(val) {
+    return val > 9 ? val : "0" + val;
+};
+const timer = setInterval(function() {
+    $("#seconds").html(pad(++sec%60));
+    $("#minutes").html(pad(parseInt(sec/60,10)));
+}, 1000);
 
 const deck = $('.deck');
 
