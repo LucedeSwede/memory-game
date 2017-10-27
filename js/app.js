@@ -28,6 +28,7 @@ function shuffle(array) {
 
 
 let openList = [];
+let moves = 0;
 
 const deck = $('.deck');
 
@@ -55,9 +56,8 @@ const matchCard = function() {
 };
 
 const incMoves = function() {
-    let moves = Number($('.moves').text());
-    $('.moves').text(moves + 1);
-    return moves + 1;
+    moves += 1;
+    $('.moves').text(moves);
 };
 
 //const opened = function() {
@@ -79,7 +79,7 @@ deck.on('click', 'li', function () {
                 openList.splice(0);
             }, 1000);
         }
-        let moves = incMoves();
+        incMoves();
         if (moves <= 10) {
             $('.threeStars').toggleClass('fa-star fa-star-o');
         }
