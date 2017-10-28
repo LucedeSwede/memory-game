@@ -28,6 +28,7 @@ function shuffle(array) {
 
 
 let openList = [];
+let matchedList = [];
 let moves = 0;
 // Count up timer from https://stackoverflow.com/questions/5517597/plain-count-up-timer-in-javascript
 let sec = 0;
@@ -64,6 +65,7 @@ const nameCard = function(index) {
 const matchCard = function() {
     if ($(this).hasClass('match') === false) {
         $(this).toggleClass('match open show');
+        matchedList.push(this);
     }
 };
 
@@ -102,6 +104,9 @@ deck.on('click', 'li', function () {
             case 21:
                 $('.oneStar').toggleClass('fa-star fa-star-o');
         }
+        if (matchedList.length === 16) {
+            $('#winModal').modal();
+        }
     }
 });
 
@@ -114,7 +119,7 @@ deck.on('click', 'li', function () {
 //        $('.deck').children('li').toggleClass('match');
 
 
-
+//dont increase moves if still on nonmatch
 
 //let classes = document.getElementsByClassName('fa')[0].classList[1];
 //console.log(classes);
