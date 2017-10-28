@@ -105,6 +105,7 @@ deck.on('click', 'li', function () {
                 $('.oneStar').toggleClass('fa-star fa-star-o');
         }
         if (matchedList.length === 16) {
+            $('.modal-body').html($('.score-panel span').html());
             $('#winModal').modal();
         }
     }
