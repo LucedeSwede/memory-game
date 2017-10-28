@@ -25,7 +25,12 @@ function shuffle(array) {
     return array;
 }
 
+//let cardsList = [];
+//$('.deck li').each(function() {
+//    cardsList.push(this);
+//});
 
+//console.log(cardsList);
 
 let openList = [];
 let matchedList = [];
@@ -42,8 +47,6 @@ $('.deck').one('click', function timer() {
         $("#minutes").html(pad(parseInt(sec/60,10)));
     }, 1000);
 });
-
-const deck = $('.deck');
 
 const showCard = function() {
     if ($(this).hasClass('match') === false && $(this).hasClass('open show') === false && openList.length < 2) {
@@ -78,7 +81,7 @@ const incMoves = function() {
 //    openList.push($(this).children()[0]);
 //}
 
-deck.on('click', 'li', function () {
+$('.deck').on('click', 'li', function cardMethod () {
     showCard.call(this);
     console.log(openList);
     if (openList.length === 2) {
@@ -87,10 +90,12 @@ deck.on('click', 'li', function () {
             matchCard.call(openList[1]);
             openList.splice(0);
         } else {
+            $('.deck').off('click');
             setTimeout(function() {
                 hideCard.call(openList[0]);
                 hideCard.call(openList[1]);
                 openList.splice(0);
+                $('.deck').on('click', 'li', cardMethod);
             }, 1000);
         }
         incMoves();
