@@ -56,10 +56,13 @@ const pad = function(val) {
     return val > 9 ? val : "0" + val;
 };
 
-$('.deck').one('click', function timer() {
-    setInterval(function() {
+$('.deck').one('click', function() {
+    let timer = setInterval(function() {
         $("#seconds").html(pad(++sec%60));
         $("#minutes").html(pad(parseInt(sec/60,10)));
+        if (matchedList.length === 16) {
+            clearInterval(timer);
+        }
     }, 1000);
 });
 
