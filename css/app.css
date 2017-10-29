@@ -115,3 +115,12 @@ h1 {
 .timerLabel, .movesLabel, .restart {
     margin-left: 16px;
 }
+
+.restart {
+    position: relative;
+    bottom: 3px;
+    padding: 2px 6px 0 6px;
+    color: white;
+    background-color: crimson;
+    border-radius: 8px;
+}
