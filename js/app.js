@@ -25,6 +25,15 @@ function shuffle(array) {
     return array;
 }
 
+const scorePanel = `
+    <span class="starsLabel">Rating: </span>
+    <i class="fa fa-star oneStar"></i>
+    <i class="fa fa-star twoStars"></i>
+    <i class="fa fa-star threeStars"></i>
+    <span class="movesLabel">Moves: <span class="moves">0</span></span>
+    <span class="timerLabel">Time: <span id="minutes">00</span>:<span id="seconds">00</span></span>
+`;
+
 let cardsList = [
             '<li class="card"><i class="fa fa-diamond"></i></li>',
             '<li class="card"><i class="fa fa-paper-plane-o"></i></li>',
@@ -47,24 +56,118 @@ let cardsList = [
 $('.deck').html(shuffle(cardsList));
 console.log(cardsList);
 
+$('.restart').click(function() {
+    $('.starsMovesTimer').html(scorePanel);
+    clearInterval(timerInterval);
+    sec = 0;
+    moves = 0;
+    movesGlobal = 0;
+});
+
 let openList = [];
 let matchedList = [];
 let moves = 0;
+let movesGlobal = 0;
+
 // Count up timer from https://stackoverflow.com/questions/5517597/plain-count-up-timer-in-javascript
 let sec = 0;
+let timerInterval;
 const pad = function(val) {
     return val > 9 ? val : "0" + val;
 };
 
-$('.deck').one('click', function() {
-    let timer = setInterval(function() {
-        $("#seconds").html(pad(++sec%60));
-        $("#minutes").html(pad(parseInt(sec/60,10)));
-        if (matchedList.length === 16) {
-            clearInterval(timer);
-        }
-    }, 1000);
-});
+//Timer object from https://jsfiddle.net/jfriend00/t17vz506/
+//let timerFxn = function(fn, t) {
+//    var timerObj = setInterval(fn, t);
+//
+//    this.stop = function() {
+//        if (timerObj) {
+//            clearInterval(timerObj);
+//            timerObj = null;
+//        }
+//        return this;
+//    }
+//
+//    // start timer using current settings (if it's not already running)
+//    this.start = function() {
+//        if (!timerObj) {
+//            this.stop();
+//            timerObj = setInterval(fn, t);
+//        }
+//        return this;
+//    }
+//
+//    // start with new interval, stop current interval
+//    this.reset = function(newT) {
+//        t = newT;
+//        return this.stop().start();
+//    }
+//}
+
+let timer = function() {
+    $("#seconds").html(pad(++sec%60));
+    $("#minutes").html(pad(parseInt(sec/60,10)));
+};
+
+//const bindButton = function() {
+//    $('.deck').unbind('click').one('click', function() {
+//        let newTimer = new timerFxn(timer, 1000);
+//        newTimer.start();
+//        $('.restart').click(function() {
+//            newTimer.stop();
+//            sec = 0;
+//            $('.deck').on('click', function() {
+//                bindButton();
+//            });
+//        });
+//    });
+//};
+
+//bindButton();
+
+//$('.restart').on('click', function() {
+//
+//    bindButton();
+//});
+
+
+
+//$('.deck').one('click', 'li', function timerRestart() {
+//    let newTimer = new timerFxn(timer, 1000);
+//    newTimer.start();
+//    $('.restart').click(function() {
+//        newTimer.stop();
+//        sec = 0;
+//        $('.deck').one('click', 'li', timerRestart;
+//    });
+//});
+//    $('.restart').click(function() {
+//        clearInterval(timerFxn);
+//    });
+//});
+
+//});
+
+//let timerRepeat = $('.deck').one('click', function() {
+//    let timerFxn = setInterval(timer, 1000);
+//});
+//    $('.restart').click(function() {
+//        clearInterval(timerFxn);
+//        sec = 0;
+//    });
+//});
+//    let timer = setInterval(function() {
+//        $("#seconds").html(pad(++sec%60));
+//        $("#minutes").html(pad(parseInt(sec/60,10)));
+//        if (matchedList.length === 16) { //test this
+//            clearInterval(timer);
+//        }
+//    }, 1000);
+//    $('.restart').click(function() {
+//        clearInterval(timer);
+//        $('.deck').on('click', timerFxn);
+//    });
+//});
 
 const showCard = function() {
     if ($(this).hasClass('match') === false && $(this).hasClass('open show') === false && openList.length < 2) {
@@ -99,7 +202,15 @@ const incMoves = function() {
 //    openList.push($(this).children()[0]);
 //}
 
-$('.deck').on('click', 'li', function cardMethod () {
+$('.deck').on('click', 'li', function cardMethod() {
+    /* I made the if statement below (to start the timer) instead of adding
+     * a click event listener. This is to simplify things and
+     * avoid interference with the main click event listener above.
+     */
+    movesGlobal += 1;
+    if (movesGlobal === 1) {
+        timerInterval = setInterval(timer, 1000);
+    }
     showCard.call(this);
     console.log(openList);
     if (openList.length === 2) {
