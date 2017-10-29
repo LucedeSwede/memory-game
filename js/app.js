@@ -31,7 +31,7 @@ const scorePanel = `
     <i class="fa fa-star twoStars"></i>
     <i class="fa fa-star threeStars"></i>
     <span class="movesLabel">Moves: <span class="moves">0</span></span>
-    <span class="timerLabel">Time: <span id="minutes">00</span>:<span id="seconds">00</span></span>
+    <span class="timerLabel">Time: <span id="minutes">00</span><span class="separator">:</span><span id="seconds">00</span></span>
 `;
 
 let cardsList = [
