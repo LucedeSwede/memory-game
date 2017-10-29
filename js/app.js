@@ -242,6 +242,7 @@ $('.deck').on('click', 'li', function cardMethod() {
                 $('.oneStar').toggleClass('fa-star fa-star-o');
         }
         if (matchedList.length === 16) {
+            clearInterval(timerInterval);
             $('.modal-body').html($('.score-panel span').html());
             $('#winModal').modal();
         }
