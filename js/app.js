@@ -56,12 +56,13 @@ let cardsList = [
 $('.deck').html(shuffle(cardsList));
 console.log(cardsList);
 
-$('.restart').click(function() {
+$('.restart, #playAgain').click(function() {
     $('.starsMovesTimer').html(scorePanel);
     clearInterval(timerInterval);
     sec = 0;
     moves = 0;
     movesGlobal = 0;
+    matchedList = [];
     $('.deck').html(shuffle(cardsList));
     console.log(cardsList);
 });
@@ -245,6 +246,10 @@ $('.deck').on('click', 'li', function cardMethod() {
             $('#winModal').modal();
         }
     }
+});
+
+$('#playAgain').click(function() {
+    $('#winModal').modal('hide');
 });
 
 //do not toggle if not match already!!!!!~~~~
