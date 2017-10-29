@@ -62,6 +62,8 @@ $('.restart').click(function() {
     sec = 0;
     moves = 0;
     movesGlobal = 0;
+    $('.deck').html(shuffle(cardsList));
+    console.log(cardsList);
 });
 
 let openList = [];
