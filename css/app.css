@@ -29,12 +29,13 @@ body {
 }
 
 header {
-    margin-top: 24px;
+    margin-top: 40px;
 }
 
 h1 {
     font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+    font-weight: bold;
+    color: #2e3d49;
 }
 
 /*
@@ -90,9 +91,12 @@ h1 {
  */
 
 .score-panel {
+    font-size: 30px;
     text-align: left;
-    width: 345px;
+    width: 600px;
     margin-bottom: 10px;
+    list-style: none;
+    display: inline-block;
 }
 
 .score-panel .stars {
@@ -102,16 +106,6 @@ h1 {
     margin: 0 5px 0 0;
 }
 
-.score-panel .stars li {
-    list-style: none;
-    display: inline-block;
-}
-
-.score-panel .restart {
-    float: right;
-    cursor: pointer;
-}
-
 .timerLabel, .movesLabel, .restart {
     margin-left: 16px;
 }
@@ -119,8 +113,19 @@ h1 {
 .restart {
     position: relative;
     bottom: 3px;
-    padding: 2px 6px 0 6px;
+    padding: 2px 11px 0 10px;
     color: white;
     background-color: crimson;
     border-radius: 8px;
+    float: right;
+    cursor: pointer;
+}
+
+.fa-star, .fa-star-o, .moves, #minutes, .separator, #seconds {
+    font-weight: 900;
+    color: #02ccba;
+}
+
+.starsLabel, .movesLabel, .timerLabel {
+    color: #2e3d49;
 }
