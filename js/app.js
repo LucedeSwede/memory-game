@@ -156,8 +156,6 @@ $('.deck').on('click', 'li', function cardMethod() {
             case 17:
                 $('.twoStars').toggleClass('fa-star fa-star-o');
                 break;
-            case 21:
-                $('.oneStar').toggleClass('fa-star fa-star-o');
         }
         /*
          * Upon matching all cards:
