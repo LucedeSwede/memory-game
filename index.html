@@ -4,6 +4,7 @@
     <title>Classic Memory Game</title>
     <meta charset="utf-8">
     <meta name="description" content="Play the classic memory game of matching pairs to win.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
@@ -19,6 +20,9 @@
         </header>
 
         <section class="score-panel">
+            <div class="restart">
+                <i class="fa fa-repeat"></i>
+            </div>
           	<span class="starsMovesTimer">
                 <span class="starsLabel">Rating: </span>
                 <i class="fa fa-star oneStar"></i>
@@ -27,10 +31,6 @@
                 <span class="movesLabel">Moves: <span class="moves">0</span></span>
                 <span class="timerLabel">Time: <span id="minutes">00</span><span class="separator">:</span><span id="seconds">00</span></span>
             </span>
-
-            <div class="restart">
-            		<i class="fa fa-repeat"></i>
-          	</div>
         </section>
 
         <ul class="deck">
