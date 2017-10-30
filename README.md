@@ -10,7 +10,9 @@ This project is done under the [Front-End Web Developer Nanodegree Program](http
 
 ## Instructions
 
-Jump right in and put your memory skills to the test by clicking on the cards and finding their match! Get the full 3 stars (and earn the respect of your peers) by matching all cards in less than 13 moves!
+Clone repository to your computer and open index.html.
+
+Then jump right in and put your memory skills to the test by clicking on the cards and finding their match! Get the full 3 stars (and earn the respect of your peers) by matching all cards in less than 13 moves!
 
 ## Dependencies
 
